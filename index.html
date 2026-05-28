@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ВИПУСТИ ПАРУ! — Антистресовий тренінг</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: "Montserrat", sans-serif; overflow-x: hidden; color: #2c2c2c; background: #faf9f7; }
+
+:root {
+  --sand: #f5efe6;
+  --warm: #e8ddd0;
+  --accent: #8b7355;
+  --deep: #3d3028;
+  --teal: #5b8a8b;
+  --light-teal: #a8c5c6;
+  --text: #2c2c2c;
+  --muted: #7a7060;
+}
+
+/* ─── NAVBAR ─────────────────────────────────── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px;
+  transition: background 0.4s, backdrop-filter 0.4s, padding 0.3s;
+}
+.navbar.scrolled {
+  background: rgba(250,249,247,0.95);
+  backdrop-filter: blur(10px);
+  padding: 12px 48px;
+  box-shadow: 0 1px 20px rgba(0,0,0,0.08);
+}
+.nav-logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px; font-weight: 600; letter-spacing: 0.12em;
+  color: #fff; text-decoration: none; transition: color 0.3s;
+}
+.navbar.scrolled .nav-logo { color: var(--deep); }
+
+.nav-logo img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s;
+}
+.navbar.scrolled .nav-links a { color: var(--muted); }
+.nav-links a:hover { color: #fff; }
+.navbar.scrolled .nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 10px 24px; border: 1px solid rgba(255,255,255,0.6);
+  color: #fff; text-decoration: none; transition: all 0.3s; border-radius: 2px;
+}
+.navbar.scrolled .nav-cta { border-color: var(--accent); color: var(--accent); }
+.nav-cta:hover { background: rgba(255,255,255,0.15); }
+.navbar.scrolled .nav-cta:hover { background: var(--accent); color: #fff; }
+
+/* ─── HERO ─────────────────────────────────────── */
+.hero {
+  position: relative; width: 100%; height: 100vh; min-height: 600px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url("./hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; background-position: center 30%;
+  transform: scale(1.05);
+  animation: zoomin 12s ease-out forwards;
+  filter: brightness(1.12) saturate(1.1);
+}
+@keyframes zoomin { to { transform: scale(1); } }
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(20,14,8,0.18) 0%, rgba(20,14,8,0.05) 40%, rgba(20,14,8,0.28) 100%);
+}
+.hero-content {
+  position: relative; z-index: 10;
+  text-align: center; padding: 0 24px;
+  animation: fadeup 1.2s 0.3s both;
+}
+@keyframes fadeup { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: none; } }
+.hero-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75); margin-bottom: 20px;
+}
+.hero-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(56px, 9vw, 110px); font-weight: 600;
+  color: #fff; line-height: 0.9; letter-spacing: 0.04em;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+}
+.hero-sub {
+  font-size: 13px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.8); margin-top: 18px;
+}
+.hero-scroll {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: fadeup 1.2s 1.2s both;
+}
+.hero-scroll span {
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.scroll-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+  animation: scrollpulse 2s ease-in-out infinite;
+}
+@keyframes scrollpulse { 0%,100%{opacity:0.4; transform:scaleY(1)} 50%{opacity:1; transform:scaleY(1.1)} }
+
+/* ─── SECTIONS COMMON ─────────────────────────── */
+section { padding: 96px 0; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+.section-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 16px;
+}
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(36px, 4vw, 56px); font-weight: 500; line-height: 1.1;
+  color: var(--deep); margin-bottom: 32px;
+}
+.section-title em { font-style: italic; }
+
+/* ─── ABOUT ────────────────────────────────────── */
+#about { background: #fff; }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.about-text p {
+  font-size: 16px; line-height: 1.8; color: #4a4440; margin-bottom: 20px;
+}
+.about-text p:first-child { font-size: 19px; font-style: italic; color: var(--deep); }
+.about-divider {
+  width: 48px; height: 2px; background: var(--accent); margin: 32px 0;
+}
+.about-visual {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.stat-card {
+  background: var(--sand); padding: 28px 32px; border-radius: 4px;
+  border-left: 3px solid var(--accent);
+}
+.stat-number {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 52px; font-weight: 600; color: var(--accent); line-height: 1;
+}
+.stat-label { font-size: 12px; letter-spacing: 0.08em; color: var(--muted); margin-top: 6px; }
+
+/* ─── FORMAT ───────────────────────────────────── */
+#format { background: var(--sand); }
+.format-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px;
+}
+.format-card {
+  background: #fff; padding: 36px 28px; border-radius: 4px;
+  border-bottom: 3px solid transparent; transition: border-color 0.3s, transform 0.3s;
+}
+.format-card:hover { border-color: var(--teal); transform: translateY(-4px); }
+.format-icon {
+  font-size: 32px; margin-bottom: 16px;
+}
+.format-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px; font-weight: 600; color: var(--deep); margin-bottom: 12px;
+}
+.format-card p { font-size: 14px; line-height: 1.7; color: var(--muted); }
+
+/* ─── FOR WHOM ─────────────────────────────────── */
+#forwhom { background: var(--deep); }
+#forwhom .section-title { color: #fff; }
+#forwhom .section-tag { color: var(--light-teal); }
+.symptoms-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px;
+}
+.symptom-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 24px; background: rgba(255,255,255,0.06); border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.08); transition: background 0.3s;
+}
+.symptom-item:hover { background: rgba(255,255,255,0.1); }
+.symptom-dash {
+  width: 24px; height: 2px; background: var(--light-teal);
+  margin-top: 10px; flex-shrink: 0;
+}
+.symptom-text { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.8); }
+.forwhom-note {
+  margin-top: 40px; padding: 28px 36px;
+  background: rgba(91,138,139,0.2); border-radius: 4px;
+  border-left: 3px solid var(--light-teal);
+}
+.forwhom-note p { font-size: 16px; color: rgba(255,255,255,0.9); line-height: 1.7; }
+
+/* ─── METHOD ───────────────────────────────────── */
+#method { background: #fff; }
+.method-intro {
+  font-size: 18px; line-height: 1.8; color: #4a4440; font-style: italic;
+  max-width: 680px; margin-bottom: 60px;
+}
+.method-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+.method-card {
+  padding: 36px 32px; background: var(--sand); border-radius: 4px;
+  position: relative; overflow: hidden;
+}
+.method-card::before {
+  content: attr(data-num);
+  position: absolute; right: 24px; top: 16px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 72px; font-weight: 600; color: rgba(139,115,85,0.08); line-height: 1;
+}
+.method-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px; font-weight: 600; color: var(--deep); margin-bottom: 12px;
+}
+.method-card p { font-size: 14px; line-height: 1.7; color: var(--muted); }
+.method-mystery {
+  margin-top: 24px; padding: 32px; 
+  background: linear-gradient(135deg, var(--deep), #5b4a3a);
+  border-radius: 4px; text-align: center;
+}
+.method-mystery p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px; font-style: italic; color: rgba(255,255,255,0.9); line-height: 1.6;
+}
+
+/* ─── RESULTS ──────────────────────────────────── */
+#results { background: var(--sand); }
+.results-grid {
+  display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; margin-top: 48px;
+}
+.results-highlight {
+  background: var(--deep); color: #fff; padding: 48px 36px; border-radius: 4px;
+  text-align: center;
+}
+.results-highlight .big-num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 96px; font-weight: 600; color: var(--light-teal); line-height: 0.9;
+}
+.results-highlight .big-pct {
+  font-size: 40px; font-weight: 300; color: var(--light-teal);
+}
+.results-highlight p {
+  font-size: 13px; letter-spacing: 0.08em; color: rgba(255,255,255,0.7);
+  margin-top: 16px; line-height: 1.6;
+}
+.results-bars { display: flex; flex-direction: column; gap: 20px; }
+.result-bar-item { }
+.result-bar-label {
+  font-size: 13px; color: var(--deep); margin-bottom: 8px;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.result-bar-label span { font-weight: 600; color: var(--accent); }
+.bar-track {
+  height: 6px; background: var(--warm); border-radius: 3px; overflow: hidden;
+}
+.bar-fill {
+  height: 100%; background: linear-gradient(to right, var(--teal), var(--light-teal));
+  border-radius: 3px; width: 0;
+  transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.result-100 {
+  margin-top: 40px; padding: 24px 28px;
+  background: #fff; border-radius: 4px;
+  display: flex; align-items: center; gap: 20px;
+}
+.result-100-icon {
+  font-size: 36px; flex-shrink: 0;
+}
+.result-100 p { font-size: 14px; line-height: 1.6; color: var(--muted); }
+.result-100 strong { color: var(--deep); font-size: 15px; }
+
+/* ─── EXPERIENCE ────────────────────────────────── */
+#experience { background: #fff; }
+.exp-stats {
+  display: flex; gap: 0; margin-top: 48px; margin-bottom: 56px;
+  border: 1px solid var(--warm); border-radius: 4px; overflow: hidden;
+}
+.exp-stat {
+  flex: 1; padding: 36px 28px; text-align: center; border-right: 1px solid var(--warm);
+}
+.exp-stat:last-child { border-right: none; }
+.exp-stat .num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 52px; font-weight: 600; color: var(--accent); line-height: 1;
+}
+.exp-stat .lbl { font-size: 12px; letter-spacing: 0.08em; color: var(--muted); margin-top: 8px; }
+.exp-partners {
+  background: var(--sand); padding: 36px; border-radius: 4px;
+}
+.exp-partners h3 {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 20px;
+}
+.partner-tags { display: flex; flex-wrap: wrap; gap: 12px; }
+.partner-tag {
+  padding: 8px 18px; background: #fff; border: 1px solid var(--warm);
+  border-radius: 2px; font-size: 13px; color: var(--deep); font-weight: 500;
+}
+.metamorphoses-note {
+  margin-top: 32px; padding: 28px 32px;
+  border: 1px solid var(--accent); border-radius: 4px;
+}
+.metamorphoses-note p { font-size: 15px; line-height: 1.7; color: var(--muted); }
+.metamorphoses-note strong { color: var(--deep); }
+
+/* ─── TESTIMONIALS ──────────────────────────────── */
+#testimonials { background: var(--deep); }
+#testimonials .section-title { color: #fff; }
+#testimonials .section-tag { color: var(--light-teal); }
+.testimonials-featured {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; margin-bottom: 32px;
+}
+.test-card-big {
+  background: rgba(255,255,255,0.06); padding: 36px 28px; border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.1); position: relative;
+}
+.test-card-big::before {
+  content: "\201C";
+  font-family: "Cormorant Garamond", serif;
+  font-size: 80px; color: var(--light-teal); opacity: 0.4;
+  position: absolute; top: 12px; left: 22px; line-height: 1;
+}
+.test-card-big blockquote {
+  font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.9);
+  font-style: italic; padding-top: 24px;
+}
+.test-card-big cite {
+  display: block; margin-top: 20px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--light-teal); font-style: normal;
+}
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+.test-card-small {
+  background: rgba(255,255,255,0.04); padding: 22px 20px; border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.test-card-small blockquote {
+  font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.75); font-style: italic;
+}
+.test-card-small cite {
+  display: block; margin-top: 12px;
+  font-size: 11px; color: var(--light-teal); font-style: normal; font-weight: 600;
+}
+
+/* ─── TRAINERS ──────────────────────────────────── */
+#trainers { background: var(--sand); }
+.trainers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; }
+.trainer-card {
+  background: #fff; border-radius: 4px; overflow: hidden;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+}
+.trainer-photo {
+  width: 100%; height: 220px;
+  background: linear-gradient(135deg, var(--warm), var(--sand));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 64px;
+}
+.trainer-info { padding: 32px; }
+.trainer-info h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px; font-weight: 600; color: var(--deep); margin-bottom: 8px;
+}
+.trainer-info .role {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 16px;
+}
+.trainer-info p { font-size: 14px; line-height: 1.7; color: var(--muted); }
+
+/* ─── FAQ ────────────────────────────────────────── */
+#faq { background: #fff; }
+.faq-list { margin-top: 48px; }
+.faq-item {
+  border-bottom: 1px solid var(--warm);
+}
+.faq-q {
+  width: 100%; background: none; border: none; cursor: pointer;
+  padding: 24px 0; display: flex; justify-content: space-between; align-items: center;
+  text-align: left;
+}
+.faq-q-text { font-size: 16px; font-weight: 500; color: var(--deep); line-height: 1.4; }
+.faq-icon {
+  width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--warm);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  margin-left: 20px; transition: all 0.3s; color: var(--accent); font-size: 18px;
+}
+.faq-item.open .faq-icon { background: var(--accent); color: #fff; transform: rotate(45deg); }
+.faq-a {
+  overflow: hidden; max-height: 0; transition: max-height 0.4s ease;
+}
+.faq-a-inner { padding: 0 0 24px; font-size: 15px; line-height: 1.7; color: var(--muted); }
+
+/* ─── REGISTER ──────────────────────────────────── */
+#register { background: linear-gradient(135deg, var(--deep) 0%, #4a3828 100%); }
+.register-inner { text-align: center; max-width: 680px; margin: 0 auto; }
+.register-inner .section-title { color: #fff; margin-bottom: 16px; }
+.register-inner .section-tag { color: var(--light-teal); text-align: center; }
+.register-inner p { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
+.reg-details {
+  display: flex; justify-content: center; gap: 40px; margin-bottom: 40px;
+}
+.reg-detail {
+  text-align: center;
+}
+.reg-detail .rd-label {
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin-bottom: 6px;
+}
+.reg-detail .rd-val {
+  font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.9);
+}
+.btn-register {
+  display: inline-block; padding: 18px 56px;
+  background: var(--light-teal); color: var(--deep);
+  font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  text-decoration: none; border-radius: 2px; transition: all 0.3s;
+}
+.btn-register:hover { background: #fff; transform: translateY(-2px); }
+.reg-note {
+  margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.5);
+}
+.reg-tg {
+  margin-top: 32px; display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.reg-tg a {
+  font-size: 13px; color: var(--light-teal); text-decoration: none; font-weight: 500;
+}
+.reg-tg a:hover { text-decoration: underline; }
+
+/* ─── FOOTER ────────────────────────────────────── */
+footer {
+  background: #1a1410; color: rgba(255,255,255,0.6);
+  padding: 56px 0 32px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand .brand-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px; font-weight: 600; color: #fff;
+  letter-spacing: 0.1em; margin-bottom: 12px;
+}
+.footer-brand p { font-size: 13px; line-height: 1.7; }
+.footer-col h4 {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 16px;
+}
+.footer-col a {
+  display: block; font-size: 13px; color: rgba(255,255,255,0.6);
+  text-decoration: none; margin-bottom: 10px; transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--light-teal); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-bottom p { font-size: 12px; }
+
+/* ─── NAV LOGO BLOCK ─────────────────────────────── */
+.nav-logo-block {
+  display: flex; flex-direction: column; text-decoration: none; line-height: 1.1;
+}
+.nav-logo-img {
+  height: 52px; width: auto; display: block;
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.3));
+  transition: filter 0.3s;
+}
+.navbar.scrolled .nav-logo-img {
+  filter: brightness(0) saturate(100%) invert(14%) sepia(68%) saturate(800%) hue-rotate(210deg) brightness(90%);
+}
+
+/* ─── CTA BUTTON IN SECTIONS ──────────────────────── */
+.section-cta {
+  margin-top: 48px; text-align: center;
+}
+.btn-section-reg {
+  display: inline-block; padding: 14px 44px;
+  border: 1.5px solid var(--accent); color: var(--accent);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  text-decoration: none; border-radius: 2px; transition: all 0.3s;
+}
+.btn-section-reg:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+.btn-section-reg.light {
+  border-color: rgba(255,255,255,0.5); color: rgba(255,255,255,0.85);
+}
+.btn-section-reg.light:hover { background: rgba(255,255,255,0.15); color: #fff; border-color: #fff; }
+
+/* ─── MOBILE MENU ────────────────────────────────── */
+.mobile-menu-btn {
+  display: none; background: none; border: none; cursor: pointer; padding: 4px; z-index: 200;
+}
+.mobile-menu-overlay {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--deep); z-index: 150; flex-direction: column;
+  align-items: center; justify-content: center; gap: 32px;
+}
+.mobile-menu-overlay.open { display: flex; }
+.mobile-menu-overlay a {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px; font-weight: 500; color: #fff; text-decoration: none;
+  letter-spacing: 0.08em; transition: color 0.2s;
+}
+.mobile-menu-overlay a:hover { color: var(--light-teal); }
+.mobile-menu-close {
+  position: absolute; top: 24px; right: 24px;
+  background: none; border: none; cursor: pointer;
+  font-size: 28px; color: rgba(255,255,255,0.7); line-height: 1;
+}
+@media (max-width: 900px) {
+  .navbar { padding: 16px 24px; }
+  .navbar.scrolled { padding: 12px 24px; }
+  .nav-links, .nav-cta { display: none; }
+  .mobile-menu-btn { display: flex; flex-direction: column; gap: 5px; }
+  .mobile-menu-btn span { width: 26px; height: 2px; background: #fff; display: block; transition: background 0.3s; }
+  .navbar.scrolled .mobile-menu-btn span { background: var(--deep); }
+  .about-grid, .method-grid, .results-grid { grid-template-columns: 1fr; }
+  .format-grid { grid-template-columns: 1fr; }
+  .symptoms-grid { grid-template-columns: 1fr; }
+  .testimonials-featured { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  .trainers-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .exp-stats { flex-direction: column; }
+  .exp-stat { border-right: none; border-bottom: 1px solid var(--warm); }
+  .exp-stat:last-child { border-bottom: none; }
+  .container { padding: 0 24px; }
+  section { padding: 64px 0; }
+  .reg-details { flex-direction: column; gap: 20px; }
+  .results-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── SCROLL REVEAL ──────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s, transform 0.7s; }
+.reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="https://draman.space" target="_blank" class="nav-logo-block">
+    <img src="DRAMANlogo.png" alt="DRAMAN Foundation" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Про тренінг</a></li>
+    <li><a href="#forwhom">Для кого</a></li>
+    <li><a href="#method">Метод</a></li>
+    <li><a href="#results">Результати</a></li>
+    <li><a href="#testimonials">Відгуки</a></li>
+    <li><a href="#trainers">Тренери</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#limitations">Обмеження</a></li>
+  </ul>
+  <a href="#register" class="nav-cta">Реєстрація</a>
+  <button class="mobile-menu-btn" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+  <button class="mobile-menu-close" id="menuClose">✕</button>
+  <a href="#about" class="menu-link">Про тренінг</a>
+  <a href="#forwhom" class="menu-link">Для кого</a>
+  <a href="#method" class="menu-link">Метод</a>
+  <a href="#results" class="menu-link">Результати</a>
+  <a href="#testimonials" class="menu-link">Відгуки</a>
+  <a href="#trainers" class="menu-link">Тренери</a>
+  <a href="#faq" class="menu-link">FAQ</a>
+  <a href="#limitations" class="menu-link">Обмеження</a>
+  <a href="#register" class="menu-link" style="color:var(--light-teal)">Реєстрація</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Гортати</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-tag">Про тренінг</div>
+        <h2 class="section-title"><em>Це не тренінг</em><br>у звичному розумінні</h2>
+        <p>Тут не вчать і не «прокачують». Немає лекцій і терапії.</p>
+        <div class="about-divider"></div>
+        <p>Дві години живого досвіду і справжнього спілкування — через вправи з театральної практики, перевірені роками. Особлива атмосфера, де можна безпечно бути собою серед інших.</p>
+        <p>Тренінг народився як відповідь на виклики нашого часу — потребу відновлюватись після років тривоги і невизначеності.</p>
+        <p>Мета не контроль над стресом. Мета — <strong>скинути напругу, що накопичувалась роками, і відчути що все може бути інакше.</strong></p>
+      </div>
+      <div class="about-visual reveal">
+        <div class="stat-card">
+          <div class="stat-number">600+</div>
+          <div class="stat-label">учасників — від 10 до 82 років</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">57%</div>
+          <div class="stat-label">комплексне зниження рівня стресу за одне заняття</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">учасників на всіх тренінгах без винятку рекомендують друзям</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg">Зареєструватись на тренінг</a></div></div>
+</section>
+
+<!-- PHOTO CAROUSEL 1 -->
+<section style="background:#f0ebe2; padding:48px 0; overflow:hidden;">
+  <div style="display:flex; gap:16px; padding:0 48px; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none;" id="carousel1">
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.1.jpg" alt="Фото 1" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.2.jpg" alt="Фото 2" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.3.png" alt="Фото 3" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.4.jpg" alt="Фото 4" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.5.jpg" alt="Фото 5" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.6.jpg" alt="Фото 6" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.7.jpg" alt="Фото 7" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.8.png" alt="Фото 8" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.9.jpg" alt="Фото 9" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.10.png" alt="Фото 10" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section id="format">
+  <div class="container">
+    <div class="section-tag reveal">Формат</div>
+    <h2 class="section-title reveal">Як це<br><em>відбувається</em></h2>
+    <div class="format-grid">
+      <div class="format-card reveal">
+        <div class="format-icon">🎭</div>
+        <h3>Театральні практики</h3>
+        <p>Прості але ефективні вправи, перевірені роками і адаптовані для звичайних людей — без сцени і без виступів.</p>
+      </div>
+      <div class="format-card reveal">
+        <div class="format-icon">⏱</div>
+        <h3>2 години</h3>
+        <p>Компактний і насичений формат. Заняття проходять у закритому комфортному приміщенні з усім необхідним.</p>
+      </div>
+      <div class="format-card reveal">
+        <div class="format-icon">👥</div>
+        <h3>Невелика група</h3>
+        <p>Невелика закрита група, сформована за віковими категоріями для комфортної участі кожного.</p>
+      </div>
+      <div class="format-card reveal">
+        <div class="format-icon">🔒</div>
+        <h3>Безпечно і без тиску</h3>
+        <p>Ніхто не змушує виступати, ділитися особистим або робити неприйнятне для вас. Можна включатись поступово.</p>
+      </div>
+      <div class="format-card reveal">
+        <div class="format-icon">🎯</div>
+        <h3>Без досвіду в театрі</h3>
+        <p>Більшість учасників ніколи не займались театром. Попередня підготовка не потрібна.</p>
+      </div>
+      <div class="format-card reveal">
+        <div class="format-icon">✨</div>
+        <h3>Особлива атмосфера</h3>
+        <p>Простір, де можна безпечно бути собою серед інших — це рідкісний досвід, якого так не вистачає сьогодні.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg">Хочу потрапити на тренінг</a></div></div>
+</section>
+
+<!-- FOR WHOM -->
+<section id="forwhom">
+  <div class="container">
+    <div class="section-tag reveal">Для кого</div>
+    <h2 class="section-title reveal">Впізнаєш<br><em>себе?</em></h2>
+    <p style="color:rgba(255,255,255,0.7); font-size:16px; margin-bottom:0;" class="reveal">Тренінг для тих, хто відчуває що стрес став частиною повсякденного життя.</p>
+    <div class="symptoms-grid">
+      <div class="symptom-item reveal"><div class="symptom-dash"></div><p class="symptom-text">Рідко відчуваєш радість або задоволення</p></div>
+      <div class="symptom-item reveal"><div class="symptom-dash"></div><p class="symptom-text">Постійна тривога або фонова напруга</p></div>
+      <div class="symptom-item reveal"><div class="symptom-dash"></div><p class="symptom-text">Відчуття що тримаєшся з останніх сил</p></div>
+      <div class="symptom-item reveal"><div class="symptom-dash"></div><p class="symptom-text">Важко знайти щось що піднімає настрій</p></div>
+      <div class="symptom-item reveal"><div class="symptom-dash"></div><p class="symptom-text">Не вистачає підтримки і живого спілкування</p></div>
+      <div class="symptom-item reveal"><div class="symptom-dash"></div><p class="symptom-text">Відчуття самотності навіть серед людей</p></div>
+    </div>
+    <div class="forwhom-note reveal">
+      <p>Якщо хоча б два пункти — про тебе, <strong style="color:#fff">тренінг для тебе.</strong></p>
+    </div>
+  </div>
+  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg light">Реєстрація</a></div></div>
+</section>
+
+<!-- METHOD -->
+<section id="method">
+  <div class="container">
+    <div class="section-tag reveal">Метод</div>
+    <h2 class="section-title reveal">Методологія<br><em>DRAMAN®</em></h2>
+    <p class="method-intro reveal">Театр — найдавніший спосіб звільнити те що накопичилось всередині. За тисячі років до з'явлення психології люди приходили в театр саме за цим.</p>
+    <p class="reveal" style="font-size:16px; color:var(--muted); margin-bottom:40px; margin-top:-20px;">Методика базується на системній взаємодії наступних елементів:</p>
+    <div class="method-grid">
+      <div class="method-card reveal" data-num="01">
+        <h3>Емоційна свобода</h3>
+        <p>Безпечний простір для вираження заблокованих почуттів — без осуду і без наслідків.</p>
+      </div>
+      <div class="method-card reveal" data-num="02">
+        <h3>Рольове різноманіття</h3>
+        <p>Усвідомлення та подолання застрягання в обумовлених та звичних ролях — основна причина вигорання.</p>
+      </div>
+      <div class="method-card reveal" data-num="03">
+        <h3>Задоволення базових потреб</h3>
+        <p>Насичення дефіцитів схвалення, визнання, уваги, живого контакту — того, чого так не вистачає.</p>
+      </div>
+      <div class="method-card reveal" data-num="04">
+        <h3>Контакт і довіра</h3>
+        <p>Формування і відновлення здатності довіряти, встановлювати і підтримувати справжній контакт.</p>
+      </div>
+    </div>
+    <div class="method-mystery reveal" style="position:relative;">
+      <div style="position:absolute; top:16px; left:28px; font-family:Cormorant Garamond,serif; font-size:80px; font-weight:700; color:rgba(168,197,198,0.15); line-height:1; pointer-events:none; user-select:none;">5</div>
+      <p>І п'ятий елемент, про який ви дізнаєтесь на тренінгу, який поєднує всі вправи та практики в ефективну систему та робить можливим результати про які ми розповідаємо.</p>
+    </div>
+  </div>
+  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg">Дізнатись на практиці</a></div></div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="container">
+    <div class="section-tag reveal">Результати</div>
+    <h2 class="section-title reveal"><em>Вплив</em> на стан учасників</h2>
+    <p style="color:var(--muted); font-size:15px; max-width:600px;" class="reveal">Результати вимірюються об'єктивно — через тестування до і після. В основі — модель PERMA+, розроблена засновником позитивної психології Мартіном Селігманом.</p>
+    <div class="results-grid">
+      <div class="results-highlight reveal">
+        <div style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:28px; line-height:1.6;">Середнє комплексне зниження<br>стресу за одне заняття</div>
+        <div class="big-num">57<span class="big-pct">%</span></div>
+      </div>
+      <div>
+        <div class="results-bars reveal">
+          <div class="result-bar-item">
+            <div class="result-bar-label">Спокій і розслабленість <span>↑ 50–75%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="75"></div></div>
+          </div>
+          <div class="result-bar-item">
+            <div class="result-bar-label">Покращення настрою <span>↑ 57–63%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="63"></div></div>
+          </div>
+          <div class="result-bar-item">
+            <div class="result-bar-label">Приплив енергії <span>↑ 48–64%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="64"></div></div>
+          </div>
+          <div class="result-bar-item">
+            <div class="result-bar-label">Радість від життя <span>↑ 46–56%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="56"></div></div>
+          </div>
+          <div class="result-bar-item">
+            <div class="result-bar-label">Ясність розуму <span>↑ 36–47%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="47"></div></div>
+          </div>
+          <div class="result-bar-item">
+            <div class="result-bar-label">Відчуття підтримки оточуючих <span>↑ 33%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="33"></div></div>
+          </div>
+          <div class="result-bar-item">
+            <div class="result-bar-label">Зв'язок з людьми і довіра <span>↑ 29%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="29"></div></div>
+          </div>
+          <div class="result-bar-item">
+            <div class="result-bar-label">Відчуття сенсу та напрямку <span>↑ 27%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="27"></div></div>
+          </div>
+          <div class="result-bar-item">
+            <div class="result-bar-label">Мотивація до діяльності <span>↑ 24%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="24"></div></div>
+          </div>
+        </div>
+        <div class="result-100 reveal">
+          <div class="result-100-icon">⭐</div>
+          <div><strong>90% учасників рекомендують тренінг</strong><p>Дев'ять з десяти учасників рекомендують тренінг своїм друзям і знайомим.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg">Відчути на собі</a></div></div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-tag reveal">Досвід</div>
+    <h2 class="section-title reveal">Перевірено<br><em>роками</em></h2>
+    <div class="exp-stats reveal">
+      <div class="exp-stat">
+        <div class="num">600+</div>
+        <div class="lbl">учасників</div>
+      </div>
+      <div class="exp-stat">
+        <div class="num">200+</div>
+        <div class="lbl">заходів проведено</div>
+      </div>
+      <div class="exp-stat">
+        <div class="num">10–82</div>
+        <div class="lbl">вік учасників</div>
+      </div>
+      <div class="exp-stat">
+        <div class="num">ТОП</div>
+        <div class="lbl">100 кейсів КМДА 2025</div>
+      </div>
+    </div>
+    <div class="exp-partners reveal">
+      <h3>Серед учасників і партнерів</h3>
+      <div class="partner-tags">
+        <span class="partner-tag">Raiffeisen Bank</span>
+        <span class="partner-tag">Ukrenergo</span>
+        <span class="partner-tag">Американський дім</span>
+        <span class="partner-tag">Vcentri Hub КМДА</span>
+        <span class="partner-tag">Military Hub Kyiv</span>
+        <span class="partner-tag">HR Days 2025</span>
+        <span class="partner-tag">Рада ВПО при КМВА</span>
+        <span class="partner-tag">Veteran Hub</span>
+      </div>
+    </div>
+    <div class="metamorphoses-note reveal">
+      <p>Тренінг «Випусти пару!» є також підготовчим етапом програми <strong>«Метаморфози»</strong> — системного продукту DRAMAN для психоемоційної реабілітації та творчого розвитку засобами театральних практик. Програма увійшла до <strong>ТОП-100 кейсів КМДА 2025</strong> року з взаємодії влади та громади.</p>
+    </div>
+  </div>
+  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg">Приєднатись до наступного тренінгу</a></div></div>
+</section>
+
+<!-- PHOTO CAROUSEL 2 -->
+<section style="background:var(--deep); padding:48px 0; overflow:hidden;">
+  <div style="display:flex; gap:16px; padding:0 48px; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none;" id="carousel2">
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.1.jpg" alt="Фото 1" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.2.jpg" alt="Фото 2" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.3.jpg" alt="Фото 3" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.4.jpg" alt="Фото 4" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.5.jpg" alt="Фото 5" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.6.png" alt="Фото 6" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.7.png" alt="Фото 7" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.8.png" alt="Фото 8" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.9.png" alt="Фото 9" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.10.png" alt="Фото 10" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-tag reveal">Відгуки</div>
+    <h2 class="section-title reveal">Що<br><em>кажуть учасники</em></h2>
+    <div class="testimonials-featured">
+      <div class="test-card-big reveal">
+        <blockquote>Натхнення, відчуття радості, легкості, стан дитини підлітка юної молодості!</blockquote>
+        <cite>Пилипчук Наталія</cite>
+      </div>
+      <div class="test-card-big reveal">
+        <blockquote>Це як ковток чогось нового. Як видих, неначе перемкнули щось, що давно хотілось, та я не могла зрозуміти де треба натиснути.</blockquote>
+        <cite>Анастасія</cite>
+      </div>
+      <div class="test-card-big reveal">
+        <blockquote>Як наче розім'яв закляклі м'язи, але ці м'язи то емоції.</blockquote>
+        <cite>Комшелюк Дмитро</cite>
+      </div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="test-card-small reveal"><blockquote>Сильно розслаблена, важко добирати слова.</blockquote><cite>Сіверська Тетяна</cite></div>
+      <div class="test-card-small reveal"><blockquote>Розслабляє, знімає стресові відчуття, трохи відриває від реалій сьогодення.</blockquote><cite>Сорока Надія</cite></div>
+      <div class="test-card-small reveal"><blockquote>З'явився спокій, зосередженість і вдячність.</blockquote><cite>Глушенко Сергій</cite></div>
+      <div class="test-card-small reveal"><blockquote>Це було те, чого мені не вистачало. Тут було на диво легко відпустити все.</blockquote><cite>учасник анонімно</cite></div>
+      <div class="test-card-small reveal"><blockquote>Мій рівень життєлюбства піднявся))) Дякую вам!</blockquote><cite>Воличенко Лариса</cite></div>
+      <div class="test-card-small reveal"><blockquote>Відчуття спокою, і того, що ти не один у світі.</blockquote><cite>Подлуцька Олександра</cite></div>
+      <div class="test-card-small reveal"><blockquote>Несподівано! Неперевершено! Сміливо! Хочу ще!</blockquote><cite>Морозова Вікторія</cite></div>
+      <div class="test-card-small reveal"><blockquote>Дуже сильна та цікава подія.</blockquote><cite>Мовчан Володимир</cite></div>
+      <div class="test-card-small reveal"><blockquote>Розслабленість. Втрата відчуття часу.</blockquote><cite>Павлюченкова Флюра</cite></div>
+      <div class="test-card-small reveal"><blockquote>Я в захваті від тренінгу і від ведучих. Хотілось би більше.</blockquote><cite>Ібрагімова Наталія</cite></div>
+      <div class="test-card-small reveal"><blockquote>Все сподобалося, настрій став краще.</blockquote><cite>Захаров Олег</cite></div>
+      <div class="test-card-small reveal"><blockquote>Це був дуже корисний приємний досвід.</blockquote><cite>Малініцький Владислав</cite></div>
+    </div>
+  </div>
+  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg light">Зареєструватись</a></div></div>
+</section>
+
+<!-- TRAINERS -->
+<section id="trainers">
+  <div class="container">
+    <div class="section-tag reveal">Тренери</div>
+    <h2 class="section-title reveal">Хто<br><em>веде тренінг</em></h2>
+    <div class="trainers-grid">
+      <div class="trainer-card reveal">
+        <div class="trainer-photo" style="padding:0; overflow:hidden;"><img src="trainer1.jpg" alt="Олександр Сітухо" style="width:100%; height:100%; object-fit:cover; object-position:top;"></div>
+        <div class="trainer-info">
+          <h3>Олександр Сітухо</h3>
+          <div class="role">Президент DRAMAN Foundation · Розробник методології</div>
+          <p>Театральний і громадський діяч, драматург, актор, продюсер. Понад 20 років тренерської роботи. 10 років у театрі. Розробник методології DRAMAN® та тренінгових програм.</p>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <div class="trainer-photo" style="padding:0; overflow:hidden;"><img src="trainer2.jpg" alt="Аліна Климанська" style="width:100%; height:100%; object-fit:cover; object-position:top;"></div>
+        <div class="trainer-info">
+          <h3>Аліна Климанська</h3>
+          <div class="role">Актриса · Режисер · Тренер</div>
+          <p>Актриса, режисер, тренер. Менеджер DRAMAN Foundation. 6 років у театрі. 3 роки тренерської роботи. Учасник понад 200 заходів — тренінгів, воркшопів та вистав.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg">Записатись на тренінг</a></div></div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container" style="max-width:800px">
+    <div class="section-tag reveal">Питання</div>
+    <h2 class="section-title reveal">Часті<br><em>запитання</em></h2>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q"><span class="faq-q-text">Потрібен досвід у театрі?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Ні. Тренінг створений для звичайних людей. Більшість учасників ніколи не займались театром.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span class="faq-q-text">Що якщо я інтроверт або замкнута людина?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Саме для вас. Інтроверти важче переносять тривалий стрес — і саме тому їм особливо потрібна підтримка. Тренінг побудований так, що можна включатись поступово, у своєму темпі, без тиску.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span class="faq-q-text">Це психологія чи психотерапія?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Ні. Тренінг не є психотерапією або медичним методом. Це практичний досвід емоційного розвантаження через театральні практики і живу взаємодію між людьми.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span class="faq-q-text">Чи підходить людям із хронічним стресом?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Так. Саме для них тренінг і створений. Якщо стрес триває довго — тілу і психіці потрібен вихід, а не чергова порада «відпочити».</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span class="faq-q-text">Це схоже на акторські курси?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Ні. Мета — не навчити грати на сцені, а скинути накопичену напругу. Але для багатьох цей тренінг став першим кроком на сцену.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span class="faq-q-text">Чи буде фізичне навантаження?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Дуже незначне. Вправи прості і доступні для людей різного віку і фізичної підготовки.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span class="faq-q-text">Чи треба буде розповідати щось особисте?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Ні. Тут немає розкриття особистого — це не групова психотерапія. Ніхто не змушує ділитись тим, чим ви не хочете ділитись.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span class="faq-q-text">Скільки людей у групі?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="faq-a-inner">Оптимальна кількість — 24 учасники, мінімальна — 12. Це дозволяє зберігати безпечну атмосферу і якість контакту в групі.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ОБМЕЖЕННЯ -->
+<section id="limitations" style="background: var(--sand);">
+  <div class="container" style="max-width: 800px;">
+    <div class="section-tag reveal">Важливо знати</div>
+    <h2 class="section-title reveal">Обмеження<br><em>та протипоказання</em></h2>
+    <p style="font-size:15px; line-height:1.7; color:var(--muted); margin-bottom:32px;" class="reveal">Тренінг «Випусти пару!» — інструмент психоемоційного відновлення і профілактики стресу. Він не є заміною медичному лікуванню, психотерапії або здоровому способу життя.</p>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;" class="reveal">
+      <div style="background:#fff; padding:28px; border-radius:4px; border-top:3px solid var(--accent);">
+        <h3 style="font-family:Cormorant Garamond,serif; font-size:20px; color:var(--deep); margin-bottom:12px;">Фізичний стан</h3>
+        <p style="font-size:13px; line-height:1.7; color:var(--muted);">Проконсультуйтесь з лікарем при загостренні хронічних захворювань, хворобах серцево-судинної системи, після операцій або травм, вагітності на пізніх термінах, порушеннях опорно-рухового апарату, що обмежують рух.</p>
+      </div>
+      <div style="background:#fff; padding:28px; border-radius:4px; border-top:3px solid var(--teal);">
+        <h3 style="font-family:Cormorant Garamond,serif; font-size:20px; color:var(--deep); margin-bottom:12px;">Психічний стан</h3>
+        <p style="font-size:13px; line-height:1.7; color:var(--muted);">Якщо ви проходите лікування або перебуваєте під наглядом фахівця з психічного здоров'я — спочатку проконсультуйтесь зі своїм лікарем щодо участі у груповому тренінгу.</p>
+      </div>
+      <div style="background:#fff; padding:28px; border-radius:4px; border-top:3px solid var(--light-teal);">
+        <h3 style="font-family:Cormorant Garamond,serif; font-size:20px; color:var(--deep); margin-bottom:12px;">Інфекційні симптоми</h3>
+        <p style="font-size:13px; line-height:1.7; color:var(--muted);">Тренінг проводиться у групі. Якщо є симптоми ГРВІ, грипу або інших інфекційних захворювань — залишіться вдома. Це турбота про вас і про інших учасників.</p>
+      </div>
+    </div>
+    <div class="section-cta reveal"><a href="#register" class="btn-section-reg">Все зрозуміло — реєструватись</a></div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section id="register">
+  <div class="container">
+    <div class="register-inner">
+      <div class="section-tag" style="text-align:center; justify-content:center; display:block; margin-bottom:12px;">Реєстрація</div>
+      <h2 class="section-title reveal" style="color:#fff">Приєднуйся<br><em style="color:var(--light-teal)">до тренінгу</em></h2>
+      <p class="reveal" style="max-width:560px; margin-left:auto; margin-right:auto;">Тренінг проводиться регулярно на різних локаціях міста Києва. Реєстрація дозволить вам отримувати інформацію про місця, дати та час проведення.</p>
+      <div style="background:rgba(255,255,255,0.07); border-radius:6px; padding:32px 36px; margin:32px 0; text-align:left; max-width:520px; margin-left:auto; margin-right:auto;" class="reveal">
+        <div style="display:flex; gap:12px; align-items:baseline; margin-bottom:10px;">
+          <span style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.45);">Найближча дата</span>
+        </div>
+        <div style="font-family:Cormorant Garamond,serif; font-size:36px; font-weight:600; color:#fff; margin-bottom:4px;">06.06.2026 · 16:30</div>
+        <div style="font-size:14px; color:rgba(255,255,255,0.7); margin-bottom:16px;">Район м. Мінська, Київ</div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.45); line-height:1.6; border-top:1px solid rgba(255,255,255,0.1); padding-top:14px;">Точна адреса буде повідомлена при підтвердженні реєстрації з міркувань безпеки</div>
+      </div>
+      <a href="#" class="btn-register reveal">Зареєструватись</a>
+      <p class="reg-note reveal">Участь у тренінгу безкоштовна після підтвердження реєстрації.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+      <div class="footer-col">
+        <h4>DRAMAN</h4>
+        <a href="https://draman.space" target="_blank">draman.space</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакти</h4>
+        <a href="mailto:info@draman.space">info@draman.space</a>
+        <a href="https://t.me/dramaninfo" target="_blank">Telegram: @dramaninfo</a>
+        <a href="https://instagram.com/draman_tt" target="_blank">Instagram: @draman_tt</a>
+        <a href="tel:+380731106807">+380 73 110 68 07</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:32px; margin-bottom:32px; display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+      <div>
+        <h4 style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:14px;">Авторські права</h4>
+        <p style="font-size:12px; line-height:1.8; color:rgba(255,255,255,0.4);">Уся інформація, розміщена на цьому сайті, а також матеріали, передані або створені в процесі проведення тренінгу чи інших заходів DRAMAN Foundation, включаючи тексти, фото-, відео- та аудіозаписи, коментарі, методичні матеріали та інший контент, є власністю DRAMAN Foundation та охороняються законодавством України про авторське право та інтелектуальну власність.</p>
+        <p style="font-size:12px; line-height:1.8; color:rgba(255,255,255,0.4); margin-top:10px;">Будь-яке використання, копіювання, поширення, публікація, відтворення або обробка матеріалів повністю чи частково без попередньої письмової згоди правовласника — заборонені.</p>
+      </div>
+      <div>
+        <h4 style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:14px;">Політика приватності</h4>
+        <p style="font-size:12px; line-height:1.8; color:rgba(255,255,255,0.4);">Благодійний фонд «DRAMAN» збирає персональні дані учасників виключно в процесі реєстрації на заходи. Отримані дані не передаються третім особам, за винятком випадків, передбачених законодавством України.</p>
+        <p style="font-size:12px; line-height:1.8; color:rgba(255,255,255,0.4); margin-top:10px;">Персональні дані можуть використовуватись для підтвердження участі у заходах, інформування про майбутні події та програми, надсилання організаційної інформації та отримання зворотного зв'язку. Учасник має право у будь-який момент звернутись із запитом на видалення або зміну своїх персональних даних.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 DRAMAN Foundation. Усі права захищені.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// Mobile menu
+const mobileBtn = document.querySelector('.mobile-menu-btn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuClose = document.getElementById('menuClose');
+if (mobileBtn) {
+  mobileBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+}
+if (menuClose) {
+  menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+}
+document.querySelectorAll('.menu-link').forEach(link => {
+  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const ans = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+    }
+  });
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// Drag scroll for carousels
+['carousel1','carousel2'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  let isDown = false, startX, scrollLeft;
+  el.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - el.offsetLeft; scrollLeft = el.scrollLeft; });
+  el.addEventListener('mouseleave', () => isDown = false);
+  el.addEventListener('mouseup', () => isDown = false);
+  el.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - el.offsetLeft; el.scrollLeft = scrollLeft - (x - startX); });
+});
+
+// Bar animation
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.w + '%';
+      });
+    }
+  });
+}, { threshold: 0.3 });
+const resultsSection = document.querySelector('#results');
+if (resultsSection) barObserver.observe(resultsSection);
+</script>
+</body>
+</html>
