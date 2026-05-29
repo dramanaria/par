@@ -76,7 +76,7 @@ body { font-family: "Montserrat", sans-serif; overflow-x: hidden; color: #2c2c2c
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; background-position: center 30%;
+  background-size: cover; background-position: center center;
   transform: scale(1.05);
   animation: zoomin 12s ease-out forwards;
   filter: brightness(1.12) saturate(1.1);
@@ -545,6 +545,15 @@ footer {
   section { padding: 64px 0; }
   .reg-details { flex-direction: column; gap: 20px; }
   .results-grid { grid-template-columns: 1fr; }
+  /* Carousel mobile */
+  #carousel1 > div, #carousel2 > div { min-width: 75vw !important; height: 200px !important; }
+  #carousel1, #carousel2 { padding: 0 24px !important; gap: 12px !important; }
+  /* Limitations 3 columns → 1 column on mobile */
+  #limitations .reveal > div { grid-template-columns: 1fr !important; }
+  /* Footer copyright grid → 1 column */
+  footer .container > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  /* Hero banner - show center */
+  .hero-bg { background-position: center center !important; }
 }
 
 /* ─── SCROLL REVEAL ──────────────────────────────── */
