@@ -487,14 +487,6 @@ footer {
   filter: brightness(0) saturate(100%) invert(14%) sepia(68%) saturate(800%) hue-rotate(210deg) brightness(90%);
 }
 
-/* ─── CAROUSEL ITEMS ─────────────────────────────── */
-.carousel-item {
-  min-width: 320px; height: 220px; flex-shrink: 0; border-radius: 4px; overflow: hidden;
-}
-.carousel-item img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-}
-
 /* ─── CTA BUTTON IN SECTIONS ──────────────────────── */
 .section-cta {
   margin-top: 48px; text-align: center;
@@ -555,10 +547,8 @@ footer {
   .reg-details { flex-direction: column; gap: 20px; }
   .results-grid { grid-template-columns: 1fr; }
   /* Carousel mobile */
-  #carousel1, #carousel2 { padding: 0 !important; gap: 0 !important; }
-  .carousel-item { min-width: 85vw !important; height: 52vw !important; }
-  .carousel-item img { object-fit: cover !important; object-position: center !important; }
-  #carousel1 > div img, #carousel2 > div img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center center !important; }
+  .carousel-item { min-width: 85vw; height: 54vw; border-radius: 4px; }
+  #carousel1, #carousel2 { padding: 0 !important; gap: 8px !important; padding-left: 16px !important; }
   /* Limitations 3 columns → 1 column on mobile */
   #limitations [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
   #limitations [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
@@ -569,16 +559,30 @@ footer {
   .hero-bg { background-position: center center !important; }
   /* Limitations - 1 column on mobile */
   .limitations-grid { grid-template-columns: 1fr !important; }
-  /* Carousel items on mobile */
-  .carousel-item { min-width: 78vw !important; height: 240px !important; }
 }
 
-.carousel-item {
+.carousel-item-DELETED {
   min-width: 320px; height: 220px; flex-shrink: 0;
   border-radius: 4px; overflow: hidden;
 }
 .limitations-grid {
   display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+}
+
+/* ─── CAROUSEL ────────────────────────────────────── */
+.carousel-item {
+  min-width: 320px;
+  height: 220px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 /* ─── SCROLL REVEAL ──────────────────────────────── */
@@ -1154,6 +1158,22 @@ reveals.forEach(el => observer.observe(el));
   el.addEventListener('mouseup', () => isDown = false);
   el.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - el.offsetLeft; el.scrollLeft = scrollLeft - (x - startX); });
 });
+
+// Fix carousel item size on mobile (Safari vw bug fix)
+function fixCarouselSizes() {
+  if (window.innerWidth > 900) return;
+  const w = window.innerWidth;
+  const itemW = Math.round(w * 0.85);
+  const itemH = Math.round(itemW * 0.6);
+  document.querySelectorAll('.carousel-item').forEach(el => {
+    el.style.minWidth = itemW + 'px';
+    el.style.width = itemW + 'px';
+    el.style.height = itemH + 'px';
+    el.style.flexShrink = '0';
+  });
+}
+fixCarouselSizes();
+window.addEventListener('resize', fixCarouselSizes);
 
 // Bar animation
 const barObserver = new IntersectionObserver((entries) => {
