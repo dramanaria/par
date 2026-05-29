@@ -555,8 +555,13 @@ footer {
   /* Footer copyright grid → 1 column */
   footer [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
   footer [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
-  /* Hero banner - show center */
-  .hero-bg { background-position: center center !important; }
+  /* Hero banner mobile */
+  .hero-bg {
+    background-image: url("hero_mobile.jpg") !important;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+  .hero { min-height: 100svh; }
   /* Limitations - 1 column on mobile */
   .limitations-grid { grid-template-columns: 1fr !important; }
 }
