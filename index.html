@@ -548,7 +548,7 @@ footer {
   .results-grid { grid-template-columns: 1fr; }
   /* Carousel mobile */
   #carousel1, #carousel2 { padding: 0 !important; gap: 0 !important; }
-  #carousel1 > div, #carousel2 > div { min-width: 88vw !important; height: 56vw !important; border-radius: 4px; overflow: hidden; }
+  #carousel1 > div, #carousel2 > div { min-width: 88vw !important; height: auto !important; aspect-ratio: 16/10 !important; border-radius: 4px; overflow: hidden; }
   #carousel1 > div img, #carousel2 > div img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center center !important; }
   /* Limitations 3 columns → 1 column on mobile */
   #limitations [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
