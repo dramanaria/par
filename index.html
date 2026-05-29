@@ -546,14 +546,29 @@ footer {
   .reg-details { flex-direction: column; gap: 20px; }
   .results-grid { grid-template-columns: 1fr; }
   /* Carousel mobile */
-  #carousel1 > div, #carousel2 > div { min-width: 75vw !important; height: 200px !important; }
-  #carousel1, #carousel2 { padding: 0 24px !important; gap: 12px !important; }
+  #carousel1, #carousel2 { padding: 0 16px !important; gap: 10px !important; }
+  #carousel1 > div, #carousel2 > div { min-width: 78vw !important; height: 180px !important; border-radius: 4px; overflow: hidden; }
+  #carousel1 > div img, #carousel2 > div img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: top center !important; }
   /* Limitations 3 columns → 1 column on mobile */
-  #limitations .reveal > div { grid-template-columns: 1fr !important; }
+  #limitations [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+  #limitations [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
   /* Footer copyright grid → 1 column */
-  footer .container > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  footer [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  footer [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
   /* Hero banner - show center */
   .hero-bg { background-position: center center !important; }
+  /* Limitations - 1 column on mobile */
+  .limitations-grid { grid-template-columns: 1fr !important; }
+  /* Carousel items on mobile */
+  .carousel-item { min-width: 78vw !important; height: 240px !important; }
+}
+
+.carousel-item {
+  min-width: 320px; height: 220px; flex-shrink: 0;
+  border-radius: 4px; overflow: hidden;
+}
+.limitations-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
 }
 
 /* ─── SCROLL REVEAL ──────────────────────────────── */
@@ -644,16 +659,16 @@ footer {
 <!-- PHOTO CAROUSEL 1 -->
 <section style="background:#f0ebe2; padding:48px 0; overflow:hidden;">
   <div style="display:flex; gap:16px; padding:0 48px; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none;" id="carousel1">
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.1.jpg" alt="Фото 1" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.2.jpg" alt="Фото 2" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.3.jpg" alt="Фото 3" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.4.jpg" alt="Фото 4" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.5.jpg" alt="Фото 5" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.6.jpg" alt="Фото 6" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.7.jpg" alt="Фото 7" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.8.jpg" alt="Фото 8" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.9.jpg" alt="Фото 9" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K1.10.jpg" alt="Фото 10" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.1.jpg" alt="Фото 1" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.2.jpg" alt="Фото 2" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.3.jpg" alt="Фото 3" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.4.jpg" alt="Фото 4" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.5.jpg" alt="Фото 5" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.6.jpg" alt="Фото 6" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.7.jpg" alt="Фото 7" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.8.jpg" alt="Фото 8" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.9.jpg" alt="Фото 9" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.10.jpg" alt="Фото 10" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
   </div>
 </section>
 
@@ -858,16 +873,16 @@ footer {
 <!-- PHOTO CAROUSEL 2 -->
 <section style="background:var(--deep); padding:48px 0; overflow:hidden;">
   <div style="display:flex; gap:16px; padding:0 48px; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none;" id="carousel2">
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.1.jpg" alt="Фото 1" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.2.jpg" alt="Фото 2" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.3.jpg" alt="Фото 3" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.4.jpg" alt="Фото 4" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.5.jpg" alt="Фото 5" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.6.jpg" alt="Фото 6" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.7.jpg" alt="Фото 7" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.8.jpg" alt="Фото 8" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.9.jpg" alt="Фото 9" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-    <div style="min-width:320px; height:220px; flex-shrink:0; border-radius:4px; overflow:hidden;"><img src="K2.10.jpg" alt="Фото 10" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.1.jpg" alt="Фото 1" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.2.jpg" alt="Фото 2" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.3.jpg" alt="Фото 3" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.4.jpg" alt="Фото 4" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.5.jpg" alt="Фото 5" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.6.jpg" alt="Фото 6" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.7.jpg" alt="Фото 7" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.8.jpg" alt="Фото 8" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.9.jpg" alt="Фото 9" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.10.jpg" alt="Фото 10" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
   </div>
 </section>
 
@@ -983,7 +998,7 @@ footer {
     <div class="section-tag reveal">Важливо знати</div>
     <h2 class="section-title reveal">Обмеження<br><em>та протипоказання</em></h2>
     <p style="font-size:15px; line-height:1.7; color:var(--muted); margin-bottom:32px;" class="reveal">Тренінг «Випусти пару!» — інструмент психоемоційного відновлення і профілактики стресу. Він не є заміною медичному лікуванню, психотерапії або здоровому способу життя.</p>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;" class="reveal">
+    <div class="reveal limitations-grid">
       <div style="background:#fff; padding:28px; border-radius:4px; border-top:3px solid var(--accent);">
         <h3 style="font-family:Cormorant Garamond,serif; font-size:20px; color:var(--deep); margin-bottom:12px;">Фізичний стан</h3>
         <p style="font-size:13px; line-height:1.7; color:var(--muted);">Проконсультуйтесь з лікарем при загостренні хронічних захворювань, хворобах серцево-судинної системи, після операцій або травм, вагітності на пізніх термінах, порушеннях опорно-рухового апарату, що обмежують рух.</p>
