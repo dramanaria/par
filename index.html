@@ -547,9 +547,9 @@ footer {
   .reg-details { flex-direction: column; gap: 20px; }
   .results-grid { grid-template-columns: 1fr; }
   /* Carousel mobile */
-  #carousel1, #carousel2 { padding: 0 16px !important; gap: 10px !important; }
-  #carousel1 > div, #carousel2 > div { min-width: 78vw !important; height: 180px !important; border-radius: 4px; overflow: hidden; }
-  #carousel1 > div img, #carousel2 > div img { width: 100% !important; height: 100% !important; object-fit: contain !important; object-position: center center !important; background: #1a1410; }
+  #carousel1, #carousel2 { padding: 0 !important; gap: 0 !important; }
+  #carousel1 > div, #carousel2 > div { min-width: 100vw !important; height: 260px !important; border-radius: 4px; overflow: hidden; }
+  #carousel1 > div img, #carousel2 > div img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center center !important; }
   /* Limitations 3 columns → 1 column on mobile */
   #limitations [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
   #limitations [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
