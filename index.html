@@ -435,6 +435,24 @@ section { padding: 96px 0; }
   text-decoration: none; border-radius: 2px; transition: all 0.3s;
 }
 .btn-register:hover { background: #fff; transform: translateY(-2px); }
+.register-buttons {
+  display: flex; gap: 32px; justify-content: center;
+  flex-wrap: wrap; margin-bottom: 20px; align-items: flex-start;
+}
+.register-option {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 14px; max-width: 300px;
+}
+.register-option .btn-register { padding: 18px 36px; min-width: 260px; text-align: center; }
+.register-hint {
+  font-size: 13px; line-height: 1.6;
+  color: rgba(255,255,255,0.7); text-align: center;
+}
+.btn-register-alt {
+  background: transparent !important; color: var(--light-teal) !important;
+  border: 1.5px solid var(--light-teal);
+}
+.btn-register-alt:hover { background: var(--light-teal) !important; color: var(--deep) !important; }
 .reg-note {
   margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.5);
 }
@@ -614,7 +632,7 @@ footer {
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#limitations">Обмеження</a></li>
   </ul>
-  <a href="#register" class="nav-cta">Реєстрація</a>
+  <a href="#register" class="nav-cta">Участь</a>
   <button class="mobile-menu-btn" aria-label="Меню">
     <span></span><span></span><span></span>
   </button>
@@ -631,7 +649,7 @@ footer {
   <a href="#trainers" class="menu-link">Тренери</a>
   <a href="#faq" class="menu-link">FAQ</a>
   <a href="#limitations" class="menu-link">Обмеження</a>
-  <a href="#register" class="menu-link" style="color:var(--light-teal)">Реєстрація</a>
+  <a href="#register" class="menu-link" style="color:var(--light-teal)">Участь</a>
 </div>
 
 <!-- HERO -->
@@ -674,7 +692,7 @@ footer {
       </div>
     </div>
   </div>
-  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg">Зареєструватись на тренінг</a></div></div>
+  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg">Взяти участь</a></div></div>
 </section>
 
 <!-- PHOTO CAROUSEL 1 -->
@@ -752,7 +770,7 @@ footer {
       <p>Якщо хоча б два пункти — про тебе, <strong style="color:#fff">тренінг для тебе.</strong></p>
     </div>
   </div>
-  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg light">Реєстрація</a></div></div>
+  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg light">Взяти участь</a></div></div>
 </section>
 
 <!-- METHOD -->
@@ -941,7 +959,7 @@ footer {
       <div class="test-card-small reveal"><blockquote>Це був дуже корисний приємний досвід.</blockquote><cite>Малініцький Владислав</cite></div>
     </div>
   </div>
-  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg light">Зареєструватись</a></div></div>
+  <div class="container"><div class="section-cta reveal"><a href="#register" class="btn-section-reg light">Взяти участь</a></div></div>
 </section>
 
 <!-- TRAINERS -->
@@ -1041,7 +1059,7 @@ footer {
 <section id="register">
   <div class="container">
     <div class="register-inner">
-      <div class="section-tag" style="text-align:center; justify-content:center; display:block; margin-bottom:12px;">Реєстрація</div>
+      <div class="section-tag" style="text-align:center; justify-content:center; display:block; margin-bottom:12px;">Участь</div>
       <h2 class="section-title reveal" style="color:#fff">Приєднуйся<br><em style="color:var(--light-teal)">до тренінгу</em></h2>
       <p class="reveal" style="max-width:560px; margin-left:auto; margin-right:auto;">Тренінг проводиться регулярно на різних локаціях міста Києва. Реєстрація дозволить вам отримувати інформацію про місця, дати та час проведення.</p>
       <div style="background:rgba(255,255,255,0.07); border-radius:6px; padding:32px 36px; margin:32px 0; text-align:left; max-width:520px; margin-left:auto; margin-right:auto;" class="reveal">
@@ -1052,8 +1070,16 @@ footer {
         <div style="font-size:14px; color:rgba(255,255,255,0.7); margin-bottom:16px;">Район м. Мінська, Київ</div>
         <div style="font-size:12px; color:rgba(255,255,255,0.45); line-height:1.6; border-top:1px solid rgba(255,255,255,0.1); padding-top:14px;">Точна адреса буде повідомлена при підтвердженні реєстрації з міркувань безпеки</div>
       </div>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSei_LF7Ey4GQAghCTtTD1RcUUQXaSaVjFHRHFHPm8-tY3uxdw/viewform?usp=header" target="_blank" class="btn-register">Зареєструватись</a>
-      <p class="reg-note reveal">Участь у тренінгу безкоштовна після підтвердження реєстрації.</p>
+      <div class="register-buttons reveal">
+        <div class="register-option">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSei_LF7Ey4GQAghCTtTD1RcUUQXaSaVjFHRHFHPm8-tY3uxdw/viewform?usp=header" target="_blank" class="btn-register">Подати заявку</a>
+          <p class="register-hint">Якщо ви з родини УБД, ветеран(ка) чи маєте статус ВПО — ви можете взяти участь безкоштовно. Забезпечується БФ DRAMAN.</p>
+        </div>
+        <div class="register-option">
+          <a href="https://concert.ua/uk/event/vipusti-paru-antistresovii-trening" target="_blank" class="btn-register btn-register-alt">Придбати квиток</a>
+          <p class="register-hint">Якщо у вас немає пільгових статусів — ви можете взяти участь на платній основі (750 грн).</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
