@@ -426,32 +426,22 @@ section { padding: 96px 0; }
 .btn-register:hover { background: #fff; transform: translateY(-2px); }
 .register-buttons {
   display: flex; gap: 32px; justify-content: center;
-  flex-wrap: wrap; margin-bottom: 20px;
-  align-items: flex-start;
+  flex-wrap: wrap; margin-bottom: 20px; align-items: flex-start;
 }
 .register-option {
   display: flex; flex-direction: column; align-items: center;
   gap: 14px; max-width: 300px;
 }
-.register-option .btn-register {
-  padding: 18px 36px;
-  min-width: 260px;
-  text-align: center;
-}
+.register-option .btn-register { padding: 18px 36px; min-width: 260px; text-align: center; }
 .register-hint {
   font-size: 13px; line-height: 1.6;
-  color: rgba(255,255,255,0.7);
-  text-align: center;
+  color: rgba(255,255,255,0.7); text-align: center;
 }
 .btn-register-alt {
-  background: transparent !important;
-  color: var(--light-teal) !important;
+  background: transparent !important; color: var(--light-teal) !important;
   border: 1.5px solid var(--light-teal);
 }
-.btn-register-alt:hover {
-  background: var(--light-teal) !important;
-  color: var(--deep) !important;
-}
+.btn-register-alt:hover { background: var(--light-teal) !important; color: var(--deep) !important; }
 .reg-note {
   margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.5);
 }
@@ -650,14 +640,16 @@ footer {
 <!-- PHOTO CAROUSEL 1 -->
 <section style="background:#f0ebe2; padding:48px 0; overflow:hidden;">
   <div style="display:flex; gap:16px; padding:0 48px; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none;" id="carousel1">
-    <div style="min-width:320px; height:220px; background:var(--warm); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 1</div>
-    <div style="min-width:320px; height:220px; background:var(--warm); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 2</div>
-    <div style="min-width:320px; height:220px; background:var(--warm); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 3</div>
-    <div style="min-width:320px; height:220px; background:var(--warm); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 4</div>
-    <div style="min-width:320px; height:220px; background:var(--warm); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 5</div>
-    <div style="min-width:320px; height:220px; background:var(--warm); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 6</div>
-    <div style="min-width:320px; height:220px; background:var(--warm); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 7</div>
-    <div style="min-width:320px; height:220px; background:var(--warm); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 8</div>
+    <div class="carousel-item"><img src="K1.1.jpg" alt="Фото 1" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.2.jpg" alt="Фото 2" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.3.jpg" alt="Фото 3" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.4.jpg" alt="Фото 4" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.5.jpg" alt="Фото 5" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.6.jpg" alt="Фото 6" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.7.jpg" alt="Фото 7" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.8.jpg" alt="Фото 8" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.9.jpg" alt="Фото 9" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K1.10.jpg" alt="Фото 10" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
   </div>
 </section>
 
@@ -863,14 +855,16 @@ footer {
 <!-- PHOTO CAROUSEL 2 -->
 <section style="background:var(--deep); padding:48px 0; overflow:hidden;">
   <div style="display:flex; gap:16px; padding:0 48px; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none;" id="carousel2">
-    <div style="min-width:320px; height:220px; background:rgba(255,255,255,0.08); border-radius:4px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.35); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 1</div>
-    <div style="min-width:320px; height:220px; background:rgba(255,255,255,0.08); border-radius:4px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.35); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 2</div>
-    <div style="min-width:320px; height:220px; background:rgba(255,255,255,0.08); border-radius:4px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.35); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 3</div>
-    <div style="min-width:320px; height:220px; background:rgba(255,255,255,0.08); border-radius:4px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.35); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 4</div>
-    <div style="min-width:320px; height:220px; background:rgba(255,255,255,0.08); border-radius:4px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.35); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 5</div>
-    <div style="min-width:320px; height:220px; background:rgba(255,255,255,0.08); border-radius:4px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.35); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 6</div>
-    <div style="min-width:320px; height:220px; background:rgba(255,255,255,0.08); border-radius:4px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.35); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 7</div>
-    <div style="min-width:320px; height:220px; background:rgba(255,255,255,0.08); border-radius:4px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.35); font-size:13px; letter-spacing:0.08em; flex-shrink:0;">Фото 8</div>
+    <div class="carousel-item"><img src="K2.1.jpg" alt="Фото 1" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.2.jpg" alt="Фото 2" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.3.jpg" alt="Фото 3" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.4.jpg" alt="Фото 4" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.5.jpg" alt="Фото 5" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.6.jpg" alt="Фото 6" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.7.jpg" alt="Фото 7" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.8.jpg" alt="Фото 8" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.9.jpg" alt="Фото 9" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="carousel-item"><img src="K2.10.jpg" alt="Фото 10" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
   </div>
 </section>
 
@@ -918,12 +912,7 @@ footer {
     <h2 class="section-title reveal">Хто<br><em>веде тренінг</em></h2>
     <div class="trainers-grid">
       <div class="trainer-card reveal">
-        <div class="trainer-photo" style="background:var(--warm); position:relative;">
-          <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
-            <div style="width:64px; height:64px; border-radius:50%; background:rgba(139,115,85,0.2); display:flex; align-items:center; justify-content:center; font-size:28px;">📷</div>
-            <span style="font-size:11px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase;">Фото тренера</span>
-          </div>
-        </div>
+        <div class="trainer-photo" style="padding:0; overflow:hidden;"><img src="trainer1.jpg" alt="Олександр Сітухо" style="width:100%; height:100%; object-fit:cover; object-position:center 20%;"></div>
         <div class="trainer-info">
           <h3>Олександр Сітухо</h3>
           <div class="role">Президент DRAMAN Foundation · Розробник методології</div>
@@ -931,12 +920,7 @@ footer {
         </div>
       </div>
       <div class="trainer-card reveal">
-        <div class="trainer-photo" style="background:var(--warm); position:relative;">
-          <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
-            <div style="width:64px; height:64px; border-radius:50%; background:rgba(91,138,139,0.2); display:flex; align-items:center; justify-content:center; font-size:28px;">📷</div>
-            <span style="font-size:11px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase;">Фото тренера</span>
-          </div>
-        </div>
+        <div class="trainer-photo" style="padding:0; overflow:hidden;"><img src="trainer2.jpg" alt="Аліна Климанська" style="width:100%; height:100%; object-fit:cover; object-position:center 15%;"></div>
         <div class="trainer-info">
           <h3>Аліна Климанська</h3>
           <div class="role">Актриса · Режисер · Тренер</div>
@@ -1026,8 +1010,7 @@ footer {
           <span style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.45);">Найближча дата</span>
         </div>
         <div style="font-family:Cormorant Garamond,serif; font-size:36px; font-weight:600; color:#fff; margin-bottom:4px;">18.07.2026 · субота · 16:30</div>
-        <div style="font-size:14px; color:rgba(255,255,255,0.7); margin-bottom:16px;">Vcentri Hub Obolon, просп. Оболонський, 22А</div>
-        <div style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.6; border-top:1px solid rgba(255,255,255,0.1); padding-top:14px;"> </div>
+        <div style="font-size:14px; color:rgba(255,255,255,0.7); margin-bottom:0;">Vcentri Hub Obolon, просп. Оболонський, 22А</div>
       </div>
       <div class="register-buttons reveal">
         <div class="register-option">
